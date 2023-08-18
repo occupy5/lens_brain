@@ -11,7 +11,9 @@ Lens Brain is a natural language retrieval tool developed based on the Lens prot
 - Vercel Postgres
 - Prompt Engineering
 
-## Usage
+## Resources
 
-- Propose any topic of interest
-- Find the best result
+- [lens-sdk](https://docs.lens.xyz/docs/sdk-react-intro)
+- [vercel-postgres](https://vercel.com/docs/storage/vercel-postgres)
+- [next-template](https://github.com/shadcn-ui/next-template)
+- [ui-colorgen](https://github.com/mickasmt/ui-colorgen)
