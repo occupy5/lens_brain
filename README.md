@@ -12,7 +12,7 @@
   <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" alt="postgresql">
 </p>
 
-**Lens Brain** is a natural language retrieval tool developed based on the **Lens protocol**, aiming to help users easily find interesting creators or content. 
+**Lens Brain** is a natural language retrieval tool developed based on the **Lens protocol**, aiming to help users easily find interesting creators or content.
 
 This project uses the **LensClient SDK**, **OpenAI API service**, **Vercel Postgres database**, and adopts relevant practices of **Prompt Engineering**.
 
@@ -22,6 +22,33 @@ This project uses the **LensClient SDK**, **OpenAI API service**, **Vercel Postg
 - OpenAI API
 - Vercel Postgres
 - Prompt Engineering
+
+## Getting Started
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/occupy5/lens_brain.git
+```
+
+2. Install dependencies
+
+```bash
+pnpm install
+```
+
+3. Set up your .env file
+
+```bash
+POSTGRES_URL=""
+OPENAI_KEY=""
+```
+
+4. Start the development server
+
+```bash
+pnpm dev
+```
 
 ## Resources
 
