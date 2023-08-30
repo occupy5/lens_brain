@@ -28,4 +28,5 @@ This project uses the **LensClient SDK**, **OpenAI API service**, **Vercel Postg
 - [lens-sdk](https://docs.lens.xyz/docs/sdk-react-intro)
 - [vercel-postgres](https://vercel.com/docs/storage/vercel-postgres)
 - [next-template](https://github.com/shadcn-ui/next-template)
+- [open-lens](https://github.com/Ferossgp/open-lens)
 - [ui-colorgen](https://github.com/mickasmt/ui-colorgen)
