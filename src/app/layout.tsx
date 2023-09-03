@@ -7,8 +7,7 @@ import { Button } from '@/components/ui/button'
 import { ThemeButton } from '@/components/ui/ThemeButton';
 import Providers from "@/components/Providers";
 import { useWeb3Modal } from '@web3modal/react';
-import { useAccount } from 'wagmi';
-import { disconnect } from '@wagmi/core';
+import { useAccount, useDisconnect } from 'wagmi';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -42,6 +41,7 @@ export default function RootLayout({
 function Nav() {
   const { open } = useWeb3Modal()
   const { address } = useAccount()
+  const { disconnect } = useDisconnect()
 
   return (
     <nav className='border-b flex flex-row items-center justify-between px-4 py-4'>
@@ -58,7 +58,7 @@ function Nav() {
         }
         {
           address && (
-            <Button onClick={disconnect}>
+            <Button onClick={() => disconnect()}>
               Sign Out
             </Button>
           )
