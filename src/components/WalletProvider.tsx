@@ -1,28 +1,78 @@
-'use client'
+'use client';
 
-import { EthereumClient, w3mConnectors, w3mProvider } from '@web3modal/ethereum'
-import { Web3Modal } from '@web3modal/react'
-import { configureChains, createConfig, WagmiConfig } from 'wagmi'
-import { arbitrum, mainnet, polygon } from 'wagmi/chains'
+import "@rainbow-me/rainbowkit/styles.css";
+import * as React from 'react';
+import {
+  RainbowKitProvider,
+  getDefaultWallets,
+  connectorsForWallets,
+} from '@rainbow-me/rainbowkit';
+import {
+  argentWallet,
+  trustWallet,
+  ledgerWallet,
+} from '@rainbow-me/rainbowkit/wallets';
+import { configureChains, createConfig, WagmiConfig } from 'wagmi';
+import {
+  mainnet,
+  polygon,
+  optimism,
+  arbitrum,
+  base,
+  zora,
+  goerli,
+} from 'wagmi/chains';
+import { publicProvider } from 'wagmi/providers/public';
 
-const chains = [arbitrum, mainnet, polygon]
-const projectId = process.env.NEXT_PUBLIC_WC_ID || ''
+const { chains, publicClient, webSocketPublicClient } = configureChains(
+  [
+    mainnet,
+    polygon,
+    optimism,
+    arbitrum,
+    base,
+    zora,
+    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [goerli] : []),
+  ],
+  [publicProvider()]
+);
 
-const { publicClient } = configureChains(chains, [w3mProvider({ projectId })])
+const projectId = process.env.NEXT_PUBLIC_WC_ID || '';
+
+const { wallets } = getDefaultWallets({
+  appName: 'lensbrain',
+  projectId,
+  chains,
+});
+
+
+const connectors = connectorsForWallets([
+  ...wallets,
+  {
+    groupName: 'Other',
+    wallets: [
+      argentWallet({ projectId, chains }),
+      trustWallet({ projectId, chains }),
+      ledgerWallet({ projectId, chains }),
+    ],
+  },
+]);
+
 const wagmiConfig = createConfig({
   autoConnect: true,
-  connectors: w3mConnectors({ projectId, chains }),
-  publicClient
-})
-const ethereumClient = new EthereumClient(wagmiConfig, chains)
+  connectors,
+  publicClient,
+  webSocketPublicClient,
+});
 
-export function WalletProvider({ children }: any) {
+export function WalletProviders({ children }: { children: React.ReactNode }) {
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => setMounted(true), []);
   return (
-    <>
-      <WagmiConfig config={wagmiConfig}>
-        {children}
-      </WagmiConfig>
-      <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
-    </>
-  )
+    <WagmiConfig config={wagmiConfig}>
+      <RainbowKitProvider chains={chains}>
+        {mounted && children}
+      </RainbowKitProvider>
+    </WagmiConfig>
+  );
 }

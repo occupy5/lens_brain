@@ -1,20 +1,15 @@
-'use client'
-
 import './globals.css';
 import { Inter } from 'next/font/google';
-import Logo from "@/components/ui/logo";
-import { Button } from '@/components/ui/button'
 import { ThemeButton } from '@/components/ui/ThemeButton';
 import Providers from "@/components/Providers";
-import { useWeb3Modal } from '@web3modal/react';
-import { useAccount, useDisconnect } from 'wagmi';
+import { Nav } from "@/components/Nav";
 
 const inter = Inter({ subsets: ['latin'] })
 
-// export const metadata = {
-//   title: 'Lens Brain',
-//   description: 'Build your second brains use lens',
-// }
+export const metadata = {
+  title: 'Lens Brain',
+  description: 'Build your second brains use lens',
+}
 
 export default function RootLayout({
   children,
@@ -35,35 +30,5 @@ export default function RootLayout({
         </Providers>
       </body>
     </html>
-  )
-}
-
-function Nav() {
-  const { open } = useWeb3Modal()
-  const { address } = useAccount()
-  const { disconnect } = useDisconnect()
-
-  return (
-    <nav className='border-b flex flex-row items-center justify-between px-4 py-4'>
-      <div>
-        <Logo />
-      </div>
-      <div>
-        {
-          !address && (
-            <Button onClick={open}>
-              Sign In
-            </Button>
-          )
-        }
-        {
-          address && (
-            <Button onClick={() => disconnect()}>
-              Sign Out
-            </Button>
-          )
-        }
-      </div>
-    </nav>
   )
 }
