@@ -42,7 +42,11 @@ export default function Home() {
         const result = await response.json();
         console.log("response from server", result);
         setResponse(result.response);
-      } finally {
+      } 
+      catch(e) {
+        return {}
+      }
+      finally {
         setIsLoading(false);
       }
     },
