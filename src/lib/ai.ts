@@ -1,7 +1,7 @@
 import { IMessage, IResponseData } from "@/pages/api/types";
 
 export async function getOpenAICompletion({ conversation }: { conversation: IMessage[] }): Promise<string> {
-  const url = "https://api.openai.com/v1/chat/completions";
+  const url = "https://chat.lensbrain.xyz/v1/chat/completions";
   const response = await fetch(url, {
     method: "POST",
     headers: {

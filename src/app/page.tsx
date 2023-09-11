@@ -43,8 +43,8 @@ export default function Home() {
         console.log("response from server", result);
         setResponse(result.response);
       } 
-      catch(e) {
-        return {}
+      catch(error) {
+        console.error("Error:", error);
       }
       finally {
         setIsLoading(false);
