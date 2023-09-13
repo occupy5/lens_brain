@@ -1,7 +1,6 @@
 import { Profile } from "@lens-protocol/react-web";
-import Image from "next/image";
 
-const ProfileBio = ({ profile }: { profile: Profile }) => {
+const ProfileBio = ({ profile }: { profile: any }) => {
   return (
     <div className="space-y-3 lg:w-2/3">
       <div className="overflow-hidden rounded-md">
