@@ -30,7 +30,7 @@ const ThemeButton = () => {
       variant="ghost"
       onClick={toggleTheme}
     >
-      {theme == "dark" ? <Sun /> : <Moon />}
+      {theme == "light" ? <Sun /> : <Moon />}
     </Button>
   );
 };

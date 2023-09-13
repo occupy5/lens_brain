@@ -53,7 +53,6 @@ pnpm dev
 ## Resources
 
 - [lens-sdk](https://docs.lens.xyz/docs/sdk-react-intro)
-- [vercel-postgres](https://vercel.com/docs/storage/vercel-postgres)
-- [next-template](https://github.com/shadcn-ui/next-template)
 - [open-lens](https://github.com/Ferossgp/open-lens)
-- [ui-colorgen](https://github.com/mickasmt/ui-colorgen)
+- [next-template](https://github.com/shadcn-ui/next-template)
+- [lens-algorithm-playground](https://github.com/dabit3/lens-algorithm-playground)
