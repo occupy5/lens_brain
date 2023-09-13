@@ -52,7 +52,7 @@ const Publications = ({
 
   return (
     <div className="flex flex-col gap-4 mt-10 xl:mt-0">
-      <div className="mx-auto flex flex-col gap-4 border rounded-sm">
+      <div className="mx-auto flex flex-col gap-4">
         {publications?.map((publication, index) => {
           return (
             <Link

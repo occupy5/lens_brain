@@ -1,6 +1,5 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
-import { ThemeButton } from '@/components/ui/ThemeButton';
 import Providers from "@/components/Providers";
 import { Nav } from "@/components/Nav";
 
@@ -21,11 +20,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           <Nav></Nav>
-          <main className="flex flex-col min-h-screen pt-24 px-4">
+          <main className="flex flex-col min-h-screen pt-14 px-4">
             {children}
-            <footer className="flex justify-end p-6">
-              <ThemeButton />
-            </footer>
           </main>
         </Providers>
       </body>

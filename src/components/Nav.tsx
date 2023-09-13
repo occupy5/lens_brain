@@ -1,17 +1,18 @@
 "use client"
-import { useAccount, useDisconnect } from 'wagmi';
 import Logo from "@/components/ui/logo";
 import { Button } from "@/components/ui/button";
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { ThemeButton } from '@/components/ui/ThemeButton';
+import Link from "next/link";
 
 export function Nav() {
 
   return (
     <nav className='border-b flex flex-row items-center justify-between px-4 py-4'>
-      <div>
+      <Link href="/">
         <Logo />
-      </div>
-      <div>
+      </Link>
+      <div className='flex'>
         <ConnectButton.Custom>
           {({ account, chain, openAccountModal, openConnectModal, openChainModal, mounted }) => {
             const connected = mounted && account && chain;
@@ -47,6 +48,7 @@ export function Nav() {
             )
           }}
         </ConnectButton.Custom>
+        <ThemeButton />
       </div>
     </nav>
   )
