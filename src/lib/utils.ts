@@ -36,13 +36,7 @@ export const returnIpfsPathOrUrl = (
 };
 
 export const formatHandleColors = (text: string) => {
-  text = text.replaceAll(".lens", "");
-  text = text.replace(
-    /(https\S+)/g,
-    `<a target="__blank" style="color: #E88185;">$1</a>`
-  );
-  return text.replace(
-    /@(\w+)/g,
-    `<a href="/profile/$1.lens" style="color: #E88185;">@$1</a>`
-  );
+  const regex = /(\w+\.lens)/g;
+  const result = text.replace(regex, '<span style="background-color: #afdfe0">$1</span>');
+  return result;
 };

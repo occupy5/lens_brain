@@ -8,6 +8,7 @@ import { LucideLoader } from "lucide-react";
 import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
 import { extractLens } from "@/lib/utils";
 import Link from "next/link";
+import { formatHandleColors } from "@/lib/utils";
 
 const EXAMPLE_PROMPTS = [
   "I want to find a partner who is skilled in VR creation.",
@@ -61,7 +62,7 @@ export default function Home() {
         <TabsTrigger value="explore">Explore</TabsTrigger>
       </TabsList>
       <TabsContent value="recommend">
-        <div className="flex flex-1 flex-wrap p-4">
+        <div className="flex flex-1 flex-wrap">
           {
             loadingProfiles && (
               <div className="
@@ -93,7 +94,7 @@ export default function Home() {
         </div>
       </TabsContent>
       <TabsContent value="explore">
-        <div className="flex h-full w-full flex-col gap-8">
+        <div className="flex h-full w-full flex-col gap-8 mt-6">
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm w-full md:w-2/4">
             <form onSubmit={handleSubmit} className="p-6 flex flex-col gap-4 pt-6">
               <Input
@@ -138,7 +139,7 @@ export default function Home() {
                 href={`/profile/${extractLens(response)}`}
                 
               >
-                <p className="text-sm">{response}</p>
+                <p className="text-sm" dangerouslySetInnerHTML={{ __html: formatHandleColors(response) }}></p>
               </Link>
               </div>
             </div>
