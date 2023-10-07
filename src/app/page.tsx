@@ -22,7 +22,7 @@ export default function Home() {
   const [inputValue, setInputValue] = useState("");
   let { data: profiles, loading: loadingProfiles } = useExploreProfiles({
     limit: 12,
-    sortCriteria: ProfileSortCriteria.MostFollowers,
+    sortCriteria: ProfileSortCriteria.MostComments,
   }) as any
 
 
